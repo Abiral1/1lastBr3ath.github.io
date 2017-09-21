@@ -27,8 +27,10 @@
     21. <a href='/research/fuzz.client'>Charset fuzzer</a><br/>
     22. <a href='/research/ie/mshtml.eml'>IE Docmode Inheritance</a><br/>
     <script>
-      // adding target
-      document.querySelectorAll('a[href^="/"]').forEach(i=>i.setAttribute('target', 'rootme.in'));
+        document.querySelectorAll('a[href^="/"]').forEach((i)=>{
+            i.setAttribute('href', i.href.replace(i.hostname, 'rootme.in'));
+            i.setAttribute('target', 'rootme.in')
+        });
     </script>
   </body>
 </html>
